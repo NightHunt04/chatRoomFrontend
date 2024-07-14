@@ -108,7 +108,7 @@ function BrainRot() {
     return (
         <div className="relative flex flex-col items-center h-screen justify-start w-full 2xl:w-[60%] overflow-hidden">
             <p className="mt-2 text-[16px] 2xl:text-[19px] flex items-center justify-center">Room ID :&nbsp;<span className="px-2 py-1 bg-[#e1e1e1] rounded-lg text-[13px] 2xl:text-[15px]">{roomId}</span><span className="ml-8 text-[15px]"><i className="fa-solid fa-globe text-green-600"></i> {onlineCount}</span></p>
-            { joined && <p className="w-full text-center text-[12px] 2xl:text-[14px] text-green-500 px-3">You joined the room at {getTime()}</p>}
+            { joined && <p className="text-center text-[12px] 2xl:text-[14px] text-green-500 px-3 pt-9 flex items-center justify-center  w-[98%] 2xl:w-[90%] 3xl:w-[60%] 2xl:pr-20 pr-6">You joined the room at {getTime()}</p>}
 
             <div className="my-2 flex flex-col items-center justify-start px-4 h-[86%] overflow-y-auto w-[98%] 2xl:w-[90%] 3xl:w-[60%] 2xl:pr-20 pr-6">
                 {
