@@ -11,6 +11,7 @@ function Boring() {
     const [isRoomTaken, setIsRoomTaken] = useState(false)
     const [isRoomCreated, setIsRoomCreated] = useState(false)
     const [isRoomNotThere, setIsRoomNotThere] = useState(false)
+    const [loader, setLoader] = useState(false)
     let socket
 
     const handleCreate = async () => {
@@ -22,17 +23,22 @@ function Boring() {
             console.log('creating')
             const roomId = generateShortId(6)
 
+            setLoader(true)
+
             socket = await createRoom({ roomId, username })
 
             if(socket) {
                 socket.on('room-creation-response', (response) => {
-                    console.log(response)
-                    if(response.status === 2)
+                    setLoader(false)
+                    
+                    if(response.status === 2) {
+                        
                         setIsRoomTaken(true)
+                    }
     
                     else if(response.status === 1){
                         setIsRoomCreated(true)
-                        
+
                         setTimeout(() => {
                             setIsRoomCreated(false)
                             navigate('chat', {
@@ -87,6 +93,10 @@ function Boring() {
         <div className="flex flex-col items-center justify-center px-3 py-2 w-full h-full">
             {
                 isRoomCreated && <p className="px-3 py-2 rounded-lg absolute top-14 bg-[#ceffb8]">Successfully created your faltu room!</p>
+            }
+
+            {
+                loader && <p className="px-3 py-2 rounded-lg absolute top-14 bg-[#cbcbcb]">Creating a room, wait for a while...</p>
             }
 
             <h2 className="text-[21px] 2xl:text-[25px] font-semibold">Chat<span className="text-[#2337c6]">Room</span></h2>
