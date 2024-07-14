@@ -118,7 +118,7 @@ function BrainRot() {
                                 <div key={uuidv4()} className="my-2 flex flex-col items-start relative w-full">
                                     {
                                        message.role === 'new' ?
-                                        <p className="text-[12px] 2xl:text-[14px] text-green-500 text-center w-full bg-white px-3">{message.username} joined the chat at {message.time}</p>
+                                        <p className="text-[12px] 2xl:text-[14px] text-green-500 text-center w-full bg-white px-3">{message.username} joined the chat at {getTime()}</p>
                                         :
                                         <p className={`${message.role === 'left' ? 'flex items-center justify-center' : 'hidden'} text-[12px] 2xl:text-[14px] text-red-500 text-center w-full bg-white px-3`}>{message.username} left the chat at {message.time}</p>
                                     }
@@ -128,7 +128,7 @@ function BrainRot() {
                                     {message.role === 'other' && <p className="px-2 text-[11px] 2xl:text-[13px]">{message.username}</p>}
                                     <p className={`${message.role !== 'other' ? 'bg-[#2337c6] text-white rounded-tr-2xl rounded-tl-2xl rounded-bl-2xl' : 'bg-[#ebebeb] rounded-tr-2xl rounded-tl-2xl rounded-br-2xl'} px-4 py-3 `}>{message.text}</p>
                                     {/* <div ref={messagesEndRef}></div> */}
-                                    <p className={`${message.role === 'other' ? 'self-start' : 'self-end'} mt-[2px] opacity-75 text-[9px] 2xl:text-[11px]`}>{message.time}</p>
+                                    <p className={`${message.role === 'other' ? 'self-start' : 'self-end'} mt-[2px] opacity-75 text-[9px] 2xl:text-[11px]`}>{getTime()}</p>
                                 </div>
                            )
                     })    
