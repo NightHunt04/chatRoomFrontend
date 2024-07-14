@@ -135,7 +135,7 @@ function BrainRot() {
                 }
                 
             </div>
-            <p className={`${userTyping !== '' ? 'bottom-[79px] opacity-100' : '-bottom-[49px] opacity-0'} transition-all duration-300 px-3 py-1 text-[#7d7d7d] absolute `}>{userTyping} { userTyping ? 'is typing...' : ''}</p>
+            <p className={`${userTyping !== '' ? 'bottom-[129px] 2xl:bottom-[79px] opacity-100' : '-bottom-[49px] opacity-0'} transition-all duration-300 px-3 py-1 text-[#7d7d7d] absolute `}>{userTyping} { userTyping ? 'is typing...' : ''}</p>
             <div className="fixed flex items-center justify-center w-[90%] 2xl:w-[40%]
              bottom-5 bg-[#fafafa] shadow-lg z-20 px-3 py-2 rounded-lg border-[1px] border-[#9b9b9b]">
                 <input
